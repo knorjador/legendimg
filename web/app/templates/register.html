@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set title = app_name ~ ' | Inscription' %}
+{% set href = '/' %}
+{% set button = 'Accueil' %}
+{% include 'navbar.html' %}
+{% set form_action = '/register' %}
+{% set form_title = 'Inscription' %}
+{% set form_href = '/login' %}
+{% set form_button = "M'inscrire" %}
+{% set form_question = 'Déjà inscrit ?' %}
+{% set form_link = 'Connexion' %}
+
+{% block content %}
+    {% include 'form_credentials.html' %}
+{% endblock %}

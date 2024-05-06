@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dev Zone | LegendImg</title>
+        <link rel="stylesheet" type="text/css" href="/static/index.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="/static/index.js"></script>
+    </head>
+    <body>
+
+        <nav>
+            <div class="left_navbar">
+                <a href="/">
+                    <img class="logo" src="/static/img/logo.png" />
+                    <span class="brand">LegendImg</span>
+                </a>
+            </div>
+            <div class="right_navbar">
+                <span class="zone_name">Dev Zone</span>
+            </div>
+        </nav>
+
+        <div class="index_content">
+            <div class="form_credentials" id="form_credentials">
+                <h1>Authentification</h1>
+                <div id="wrapper_form">
+                    <p id="form_message"></p>
+                    <div>
+                        <label for="name">
+                            Nom
+                        </label>
+                        <input type="text" id="name" name="name" />
+                    </div>
+                    <div>
+                        <label for="password">
+                            Mot de passe
+                        </label>
+                        <input type="password" id="password" name="password" />
+                    </div>
+                    <div>
+                        <button id="button_credentials">
+                            M'authentifier
+                        </button>
+                    </div>
+                </div>
+
+                <div id="loading">
+                    <p>TODO loading...</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

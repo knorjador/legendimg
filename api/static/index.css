@@ -1,0 +1,192 @@
+
+:root {
+    --primary: #0768c2;
+    --primary_dark: #135dcc;
+    --orange: #32cfeb;
+    --brown: #0088CC;
+    --dark: #23242A;
+    --blue: #1F95A7;
+    --white: #F6F8F8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    padding-top: 200px;
+}
+
+.wrapper > h1 {
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    font-size: 25px;
+}
+
+/*  
+
+    > HOME PAGE 
+
+*/
+
+.content {
+    width: 100%;
+    min-height: 100%;
+}
+
+.index_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 20px;
+    background: var(--white);
+}
+
+.logo {
+    width: 128px;
+}
+
+.left_navbar {
+    display: flex;
+    align-items: center;
+}
+
+.left_navbar > a {
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    margin-left: 16px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.right_navbar {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.dev_name, .zone_name {
+    margin-right: 40px;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.dev_name {
+    color: var(--orange)
+}
+
+.zone_name {
+    color: var(--primary_dark)
+}
+
+.right_navbar > a {
+    margin-right: 21px;
+}
+
+.right_navbar > a > button {
+    padding: 5px 20px;
+    font-size: 20px;
+    background: var(--primary);
+    color: var(--dark);
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.right_navbar > a > button:hover {
+    cursor: pointer;
+    background: var(--primary_dark);
+}
+
+/*  
+
+    > CREDENTIALS FORM
+
+*/
+
+.form_credentials {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    color: var(--primary_dark);
+}
+
+.form_credentials > h1, .form_training > h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#wrapper_form > div {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#wrapper_form label {
+    color: var(--dark);
+    font-weight: bold;
+}
+
+#wrapper_form input {
+    padding: 10px 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: var(--primary);
+    color: var(--primary_dark);
+    font-weight: bold;
+}
+
+#wrapper_form input:focus,
+#wrapper_form button:focus { 
+    outline-color: var(--primary_dark);
+}
+
+#wrapper_form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background: var(--primary_dark);
+    color: white;
+    font-weight: bold;
+}
+
+#form_message {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+
+/*  
+
+    > LOADING
+
+*/
+
+#loading {
+    width: 100%;
+    display: none;
+}

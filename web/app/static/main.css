@@ -1,0 +1,159 @@
+
+
+:root {
+    --primary: #0768c2;
+    --primary_dark: #135dcc;
+    --orange: #32cfeb;
+    --brown: #0088CC;
+    --dark: #23242A;
+    --blue: #1F95A7;
+    --white: #F6F8F8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: lightblue;
+}
+
+.wrapper {
+    padding-top: 200px;
+}
+
+.wrapper > h1 {
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    font-size: 25px;
+}
+
+/*  
+
+    > HOME PAGE 
+
+*/
+
+.content {
+    width: 100%;
+    min-height: 100%;
+    /* background: var(--dark); */
+}
+
+.index_content {
+    position: fixed;
+    width: 100%;
+    padding-top: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.index_content > img {
+    width: 25%;
+}
+
+.speech {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    /* text-transform: uppercase; */
+    padding: 40px 0px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+@media (max-width: 1024px) { 
+    .speech {
+        font-size: 20px;
+    }
+}
+
+
+/*  
+
+    > CREDENTIALS FORM
+
+*/
+
+.form_credentials {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    color: var(--white);
+}
+
+#wrapper_form > div {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.form_title {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--brown);
+}
+
+#wrapper_form label {
+    font-weight: bold;
+}
+
+#wrapper_form input {
+    padding: 10px 15px;
+    color: var(--primary_dark);
+    font-weight: bold;
+}
+
+#wrapper_form input:focus,
+#wrapper_form button:focus { 
+    outline-color: var(--primary_dark);
+}
+
+#wrapper_form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background: var(--primary_dark);
+    color: white;
+    font-weight: bold;
+}
+
+#form_message {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--orange);
+}
+
+/*  
+
+    > LOADING
+
+*/
+
+#loading {
+    width: 100%;
+    display: none;
+}
+
+#loading_message {
+    width: 100%;
+    margin-top: 60px;
+    text-align: center;
+    font-size: 21px;
+    color: var(--dark);
+}
+
+
