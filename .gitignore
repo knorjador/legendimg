@@ -1,4 +1,3 @@
-
 venv/
 **/__pycache__/
 
@@ -8,3 +7,21 @@ web/app.db
 web/migrations/
 
 api/.env
+
+**/Flicker8k_Dataset/
+**/Flickr8k_Dataset/
+**/Flickr8k_text/
+
+**/myenv
+**/descriptions.txt
+**/encoded_images_inceptionV3.p
+**/main image captioning-InceptionV3.ipynb
+**/vgg16_weights_tf_dim_ordering_tf_kernels (1).h5
+**/README.md
+
+**/environment.yml
+**/features.pkl
+**/model.png
+**/model-ep001-loss4.437-val_loss3.979.keras 
+**/model-ep002-loss3.780-val_loss3.852.keras 
+**/model-ep003-loss3.566-val_loss3.828.keras
