@@ -9,6 +9,17 @@ web/migrations/
 api/.env
 
 **/Flicker8k_Dataset/
+**/Flickr8k_text/
+
+**/myenv
+**/descriptions.txt
+**/encoded_images_inceptionV3.p
+**/main image captioning-InceptionV3.ipynb
+**/vgg16_weights_tf_dim_ordering_tf_kernels (1).h5
+**/README.md
+
+
+**/Flicker8k_Dataset/
 **/Flickr8k_Dataset/
 **/Flickr8k_text/
 
