@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% set title = app_name ~ ' | Annotation' %}
+{% set user = 'yes' %}
+{% set menu_href = '/history' %}
+{% set menu_button = 'Historique' %}
+{% set href = '/logout' %}
+{% set button = 'Déconnexion' %}
+{% set name = name %}
+{% include 'navbar.html' %}
+
+{% block content %}
+    <div class="wrapper_upload">
+        <script src="{{ url_for('static', filename='upload.js') }}"></script>
+        <div id="dd_container" class="dd_container">
+            <div>
+                <button id="button_cancel" class="button_cancel">Annuler</button>
+            </div>
+            <div class="drag_area">
+                <div class="icon">
+                    <img src="{{ url_for('static', filename='img/upload.png') }}" />
+                </div>
+                <span class="header">Glisser && déposer</span>
+                <span class="header">ou <span class="button">Parcourir</span></span>
+                <input type="file" hidden />
+                <span class="support">Autorisé : JPEG, JPG, PNG</span>
+            </div>
+            <div>
+                <button id="button_annotate" class="button_annotate">Annoter</button>
+            </div>
+        </div>
+        <div id="caption_container" class="caption_container">
+            <div>
+                <button id="button_redo" class="button_annotate">Annoter une autre image</button>
+            </div>
+        </div>
+        <div id="loading">
+            <p id="loading_annotate"></p>
+            <div class="loader_wrapper">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <!-- <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i> -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

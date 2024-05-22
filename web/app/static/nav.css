@@ -11,7 +11,7 @@ nav {
 }
 
 .logo {
-    width: 128px;
+    width: 64px;
 }
 
 .left_navbar {
@@ -28,7 +28,7 @@ nav {
     margin-left: 16px;
     font-size: 25px;
     font-weight: bold;
-    color: var(--brown)
+    color: var(--normal)
 }
 
 .right_navbar {
@@ -42,7 +42,7 @@ nav {
     margin-right: 40px;
     font-weight: bold;
     font-size: 21px;
-    color: var(--orange)
+    color: var(--primary_dark)
 }
 
 .right_navbar > a {
@@ -52,8 +52,8 @@ nav {
 .right_navbar > a > button {
     padding: 5px 20px;
     font-size: 20px;
-    background: var(--primary);
-    color: var(--brown);
+    background: var(--light);
+    color: var(--white);
     font-weight: bold;
     border-radius: 20px;
 }

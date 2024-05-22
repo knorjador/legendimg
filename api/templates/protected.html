@@ -16,7 +16,7 @@
             </div>
             <div class="right_navbar">
                 <span class="dev_name">{{ dev | capitalize }}</span>
-                <span class="zone_name">Dev Zone</span>
+                <span class="zone_name">DevZone</span>
                 <a href="/docs" target="_blank">
                     <button>Doc</button>
                 </a>
@@ -32,7 +32,50 @@
         <div class="index_content">
 
             <div class="wrapper_train" id="wrapper_train">
-                <!-- TODO -->
+                <div class="form_train" id="form_train">
+                    <p id="form_message"></p>
+                    <div id="wrapper_train_form" class="wrapper_train_form">
+                        <div id="left">
+                            <div class="wrapper_left">
+                                <div>
+                                    <label>
+                                        Estimateur
+                                    </label>
+                                    <select id="select_estimator" name="Model" class="input_data">
+                                        <option value="svc">SVC</option>
+                                        <option value="lsvc">LinearSVC</option>
+                                        <option value="dt">DecisionTreeClassifier</option>
+                                        <option value="rf">RandomForestClassifier</option>
+                                    </select>
+                                </div>
+                                <div id="hyparams"></div>
+                                <button 
+                                    id="button_training"
+                                    style="margin-top: 40px"
+                                >
+                                    Entraîner
+                                </button>
+                                <div id="best_scores"></div>
+                            </div>
+                        </div>
+        
+                        <!-- <div id="right">
+                            <div id="historic">
+                                <h4>Historique des entraînements</h4>
+                                <div id="content_historic">
+                                    
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+        
+                <div id="loading">
+                    <p id="loading_message"></p>
+                    <div class="loader_wrapper">
+                      
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -10,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from livereload import Server
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 from joselib import jwt
 from passlib.context import CryptContext
 
@@ -18,7 +18,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Annotated, Optional, Dict, Any
 from dotenv import load_dotenv
 
-from annotate import annotate 
+from annotate import get_caption
+from train_sentiment import train_sentiment
 
 load_dotenv()
 
@@ -29,13 +30,13 @@ load_dotenv()
     ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 """ 
 
-app = FastAPI()
+app = FastAPI(cache_ttl=0)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5000"],
+    allow_origins=['http://127.0.0.1:5000', 'http://localhost:5000'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -47,6 +48,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 ALGORITHM = os.getenv('ALGORITHM')
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES'))
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+MODELS = ['svc', 'lsvc', 'dt', 'rf']
+
 
 """ 
     ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
@@ -56,7 +61,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES'))
 
 hashed_password = pwd_context.hash("ok")
 
-print(hashed_password)
+# print(hashed_password)
 
 allowed = [
     { "name": "alex", "password": hashed_password },
@@ -78,7 +83,8 @@ class Dev(BaseModel):
 
 
 class Annotate(BaseModel):
-    title: str = Field(default=None)
+    filename: str = Field(default=None)
+    url: str = Field(default=None)
 
 
 """ 
@@ -131,7 +137,7 @@ async def protected(request: Request, access_token: str, dev: dict = Depends(get
     return templates.TemplateResponse("protected.html", context)
 
 
-@app.post("/annotate")
+@app.post("/train_sentiment")
 async def annotate_protected(request: Request):
     data = await request.json()
     print(data)
@@ -141,30 +147,35 @@ async def annotate_protected(request: Request):
     if dev is None:
         return { "fail": "not_allowed" }
     model = data["model"]
-    process = data["process"]
     hyparams = data["hyparams"]
-    if model in MODELS and process in PROCESSES:
-        return train(model, process, hyparams)
+    if model in MODELS:
+        # return { 'done': 'ok' }
+        return train_sentiment(model, hyparams)
     else: 
-        return { "fail": True, "message": "Fail in annotate" }
+        return { "fail": True, "message": "Fail in train_sentiment" }
 
 
 """ 
     ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
-    > PREDICT FROM APPLICATION WEB localhost:5000
+    > ANNOTATE FROM APPLICATION WEB localhost:5000
     ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 """ 
 
-@app.options("/predict", include_in_schema=False)
-def options_predict():
+@app.options("/annotate", include_in_schema=False)
+def options_annotate():
     return JSONResponse({ "message": "Options request allowed" }, status_code=200)
 
 
-@app.post("/predict")
-def predict(data: Annotate):
-    print(data)
-    # todo
-    return JSONResponse({ "prediction": "WIP" }, status_code=200)
+@app.post("/annotate")
+def annotate(data: Annotate):
+    # print(data)
+    caption, trad, sentiment = get_caption(data.url)
+    print()
+    print()
+    print(caption)
+    print()
+    print()
+    return JSONResponse({ 'caption': caption, 'trad': trad, 'sentiment': sentiment }, status_code=200)
  
 
 """ 

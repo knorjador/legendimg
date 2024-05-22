@@ -9,15 +9,10 @@ const submitCredentials = () => {
     loading.style.display = 'flex'
 }
 
-const submitPredict = async() => {
-
-    console.log('WIP')
- 
-}
-
 window.addEventListener('load', () => {
 
-    const queryString = window.location.search,
+    const 
+        queryString = window.location.search,
         params = new URLSearchParams(queryString),
         parameters = {}
 
@@ -47,5 +42,4 @@ window.addEventListener('load', () => {
         setTimeout(() => form_message.style.display = 'none', 1500)
     }
 
-    document.getElementById("button_annote").addEventListener("click", submitPredict)
 })

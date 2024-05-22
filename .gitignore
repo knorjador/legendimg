@@ -8,3 +8,7 @@ web/app.db
 web/migrations/
 
 api/.env
+api/tmp.py
+api/mlruns/
+
+mlops/

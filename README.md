@@ -1,6 +1,13 @@
+
+Après avoir démarré l'environnement : 
+
 ### Installer les dépendances 
 
+```bash
+
 pip install -r requirements.txt
+
+```
 
 
 ### Lancer Flask 
@@ -34,11 +41,25 @@ Renommer .env.example en .env
 openssl rand -hex 32
 
 # lancer fastapi
-uvicorn main:app --reload
+uvicorn main:app --reload --reload-dir static
+
 
 ```
 
 goto: http://localhost:8000
+
+
+### Lancer Mlflow 
+
+> Dans le dossier api 
+
+```bash
+
+mlflow ui --port 9000
+
+```
+
+goto: http://localhost:9000
 
 
 ### Figer les dépendances

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% set title = app_name ~ ' | Historique' %}
+{% set user = 'yes' %}
+{% set menu_href = '/upload' %}
+{% set menu_button = 'Annoter' %}
+{% set href = '/logout' %}
+{% set button = 'Déconnexion' %}
+{% set name = name %}
+{% include 'navbar.html' %}
+
+{% set emojies = {
+    'Joie': '😂',
+    'Peur': '😱',
+    'Colère': '😠',
+    'Tristesse': '😢',
+    'Dégoût': '🤢',
+    'Honte': '😅',
+    'Culpabilité': '😔'
+} %}
+
+{% block content %}
+    <div class="history_content">
+        <h1 class="history">Historique des annotations</h1>
+        <div class="wrapper_history">
+            <table>
+                <tbody>
+                    {% for image in images %}
+                        <tr>
+                            <td>
+                                <img class="img_history" style="width: 350px;margin: auto;" src="{{ image.img }}" alt="{{ image.caption }}">
+                            </td>
+                            <td style="padding-left: 30px;color: white;">
+                                <p style="font-size: 18px;font-style: italic;">
+                                    {{ image.caption }}
+                                </p>
+                                <p style="font-size: 20px;font-weight: bold;">
+                                    {{ image.trad }}
+                                </p>
+                                <p style="margin-top: 30px;font-size: 16px;font-weight: bold;">
+                                    {{ image.sentiment }} 
+                                    <span style="font-size: 30px;">
+                                        {{ emojies[image.sentiment] }}
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
